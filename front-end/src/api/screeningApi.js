@@ -1,10 +1,4 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+import { apiClient } from "./apiClient";
 
-export const fetchMinerviniResults = async () => {
-    try {
-        console.log(API_BASE_URL);
-        return API_BASE_URL;
-    } catch (error) {
-        console.error('Error Fetching MinerviniScreeningResults', error);
-    }
-};
+export const fetchMinerviniResults = () => apiClient('screening/minervini', { body: { model: "minervini", date: '2025-10-14' }});
+

@@ -1,5 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
+
+class ScreeningRequest(BaseModel):
+    model: str
+    date: str
+
 
 app = FastAPI()
 
@@ -17,3 +24,8 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+
+@app.post("/api/screening/minervini")
+def fetchMinerviniResults(request_data: ScreeningRequest):
+    return request_data.date
