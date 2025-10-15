@@ -1,0 +1,16 @@
+# Python Caches
+__pycache__/
+*.pyc
+
+# Python Virtual Environment
+back-end/venv/
+
+# Node.js Dependencies
+front-end/node_modules/
+
+# Environment Variables File
+front-end/.env.local
+
+# OS specific files
+.DS_Store
+Thumbs.db
