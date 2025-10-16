@@ -2,8 +2,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 
 export const apiClient = async (endpoint, { body, ...options } = {}) => {
     try {
-        // const fullUrl = new URL(endpoint, API_BASE_URL).href
-        const fullUrl = `${API_BASE_URL}/${endpoint}`;
+        const fullUrl = new URL(endpoint, API_BASE_URL).href
         const config = {
             ...options,
             method: body? 'POST' : 'GET',
@@ -11,8 +10,8 @@ export const apiClient = async (endpoint, { body, ...options } = {}) => {
                 'Content-Type': 'application/json',
                 ...options.headers,
             },
+            body: JSON.stringify(body)
         };
-        console.log(fullUrl);
         const response = await fetch(fullUrl, config)
 
         if(!response.ok) {

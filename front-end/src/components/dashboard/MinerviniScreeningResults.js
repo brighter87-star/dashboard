@@ -14,8 +14,6 @@ function MinerviniScreeningResults() {
             });
     }, []);
 
-    console.log(text);
-
     return (
         <div>
             <h1> 미너비니 스크리닝 통과 종목 </h1>
