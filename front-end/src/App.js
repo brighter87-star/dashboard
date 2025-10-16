@@ -1,12 +1,10 @@
 import './App.css';
-import MinerviniScreeningResults from './components/dashboard/MinerviniScreeningResults';
-import PortfolioTable from './components/dashboard/PortfolioTable';
+import Dashboard from './pages/Dashboard';
 
 function App() {
     return (
         <div className="App">
-            <PortfolioTable />
-            <MinerviniScreeningResults />
+            <Dashboard />
         </div>
     );
 }

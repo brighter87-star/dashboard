@@ -13,5 +13,12 @@ router = APIRouter()
 def fetchMinerviniResults(
     request_data: ScreeningRequest, db: Session = Depends(get_db)
 ):
-    result = db.query(ScreeningResultModel).all()
+    result = (
+        db.query(ScreeningResultModel)
+        .filter(
+            ScreeningResultModel.close_date == request_data.date,
+            ScreeningResultModel.v > 10000000,
+        )
+        .all()
+    )
     return result
