@@ -2,7 +2,7 @@ import * as React from 'react';
 import DataTable from '../common/DataTable';
 import { useMinerviniResults } from '../../features/screening/hooks/useMinerviniResults';
 import { screeningResultColumns } from '../columns/screeningResultColumns';
-import { getLastUpdated } from '../../utils/date';
+import { getLastUpdated, parseDate } from '../../utils/date';
 
 export default function MinerviniScreeningResults() {
     const { result, loading, error } = useMinerviniResults();
@@ -10,7 +10,7 @@ export default function MinerviniScreeningResults() {
     if (loading) return <p>로딩 중...</p>;
     if (error) return <p>에러 발생: {error.message}</p>;
 
-    const { year, month, day } = getLastUpdated();
+    const { year, month, day } = parseDate(getLastUpdated());
 
     const rows = result.map((r) => ({
         ...r,

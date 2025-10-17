@@ -7,10 +7,18 @@ export function parseDate(date) {
     };
 }
 
-export function getLastUpdated() {
+export function getLastUpdated(delta = 1) {
     const now = new Date();
     if (now.getHours() < 7 || (now.getHours() === 7 && now.getMinutes() < 30)) {
-        now.setDate(now.getDate() - 1);
+        now.setDate(now.getDate() - delta);
+    } else {
+        now.setDate(now.getDate() - delta + 1);
     }
-    return parseDate(now);
+    return now;
+}
+
+export function makeDateyyyymmdd(date) {
+    date = new Date(date);
+    const { year, month, day } = parseDate(date);
+    return `${year}-${month}-${day}`;
 }
