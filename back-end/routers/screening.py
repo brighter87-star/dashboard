@@ -6,10 +6,10 @@ from schemas.screening import ScreeningRequest, ScreeningResultOut
 from session.database import get_db
 from sqlalchemy.orm import Session
 
-router = APIRouter()
+router = APIRouter(prefix="/api/screening")
 
 
-@router.post("/api/screening/minervini", response_model=List[ScreeningResultOut])
+@router.post("/minervini", response_model=List[ScreeningResultOut])
 def fetchMinerviniResults(
     request_data: ScreeningRequest, db: Session = Depends(get_db)
 ):

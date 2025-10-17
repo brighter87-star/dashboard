@@ -17,7 +17,7 @@ export default function DataTable({
     onColumnVisibilityModelChange, // optional
 }) {
     return (
-        <div style={{ height, width: '70%', margin: '0 auto' }}>
+        <div style={{ height, width: '100%', margin: '0 auto'}}>
             <ComponentTitle title={title} caption={caption} />
             <DataGrid
                 rows={rows}
